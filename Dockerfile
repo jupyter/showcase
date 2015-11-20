@@ -1,3 +1,6 @@
+# Copyright (c) Jupyter Development Team.
+# Distributed under the terms of the Modified BSD License.
+
 FROM andrewosh/binder-base
 
 USER root
@@ -19,21 +22,24 @@ RUN cd /tmp && \
 # get samples from other repos
 RUN mkdir -p $HOME/notebooks
 RUN cd /tmp && \
-    wget -O src.tar.gz https://github.com/jupyter-incubator/contentmanagement/archive/0.1.1.tar.gz && \
+    wget -qO src.tar.gz https://github.com/jupyter-incubator/contentmanagement/archive/0.1.1.tar.gz && \
     tar xzf src.tar.gz && \
     mv contentmanagement*/etc/notebooks $HOME/notebooks/contentmanagement && \
     rm -rf /tmp/contentmanagement* && \
     rm -f /tmp/src.tar.gz
 RUN cd /tmp && \
-    wget -O src.tar.gz https://github.com/jupyter-incubator/declarativewidgets/archive/0.1.0.tar.gz && \
+    wget -qO src.tar.gz https://github.com/jupyter-incubator/declarativewidgets/archive/0.1.0.tar.gz && \
     tar xzf src.tar.gz && \
     mv declarativewidgets*/notebooks $HOME/notebooks/declarativewidgets && \
     rm -rf /tmp/declarativewidgets* && \
     rm -f /tmp/src.tar.gz
 RUN cd /tmp && \
-    wget -O src.tar.gz https://github.com/jupyter-incubator/dashboards/archive/0.1.0.tar.gz && \
+    wget -qO src.tar.gz https://github.com/jupyter-incubator/dashboards/archive/0.1.0.tar.gz && \
     tar xzf src.tar.gz && \
     mv dashboards*/etc/notebooks $HOME/notebooks/dashboards && \
     find /home/main/notebooks -type f -name *.ipynb -print0 | xargs -0 sed -i 's$/home/jovyan/work$/home/main/notebooks$g' && \
     rm -rf /tmp/dashboards* && \
     rm -f /tmp/src.tar.gz
+
+# include nice intro notebook
+COPY index.ipynb $HOME/notebooks/
