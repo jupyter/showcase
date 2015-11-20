@@ -34,7 +34,7 @@ RUN cd /tmp && \
     wget -qO src.tar.gz https://github.com/jupyter-incubator/dashboards/archive/0.1.0.tar.gz && \
     tar xzf src.tar.gz && \
     mv dashboards*/etc/notebooks $HOME/notebooks/dashboards && \
-    find /home/main/notebooks -type f -name *.ipynb -print0 | xargs -0 sed -i 's$/home/jovyan/work$/home/main/notebooks$g' && \
+    find /home/main/notebooks -type f -name *.ipynb -print0 | xargs -0 sed -i 's$/home/jovyan/work$/home/main/notebooks/dashboards$g' && \
     rm -rf /tmp/dashboards* && \
     rm -f /tmp/src.tar.gz
 
