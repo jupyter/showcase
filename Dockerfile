@@ -19,7 +19,7 @@ RUN cd /tmp && \
 # get samples from other repos
 RUN mkdir -p $HOME/notebooks
 RUN cd /tmp && \
-    wget -qO src.tar.gz https://github.com/jupyter-incubator/contentmanagement/archive/0.1.1.tar.gz && \
+    wget -qO src.tar.gz https://github.com/jupyter-incubator/contentmanagement/archive/0.1.2.tar.gz && \
     tar xzf src.tar.gz && \
     mv contentmanagement*/etc/notebooks $HOME/notebooks/contentmanagement && \
     rm -rf /tmp/contentmanagement* && \
