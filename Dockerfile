@@ -30,8 +30,10 @@ ENV DASHBOARDS_BUNDLERS_VERSION 0.2.2
 ENV DECL_WIDGETS_VERSION 0.3.1
 ENV CMS_VERSION 0.4.0
 
-# get to the latest jupyter release
-RUN conda install -y jupyter seaborn futures
+# get to the latest jupyter release and necessary libraries
+RUN conda install -y jupyter seaborn futures && \
+    bash -c "source activate python3 && \
+        conda install seaborn"
 
 # install incubator extensions
 RUN pip install jupyter_dashboards==$DASHBOARDS_VERSION \
