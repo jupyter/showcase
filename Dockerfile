@@ -21,7 +21,7 @@ RUN cd /usr/local && ln -s spark-${APACHE_SPARK_VERSION}-bin-hadoop2.6 spark
 
 ENV SPARK_HOME /usr/local/spark
 ENV PYTHONPATH $SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.9-src.zip
-ENV PYSPARK_PYTHON /home/main/anaconda/envs/python3/bin/python
+ENV PYSPARK_PYTHON /home/main/anaconda2/envs/python3/bin/python
 
 USER main
 
@@ -49,7 +49,7 @@ RUN jupyter dashboards install --user --symlink && \
     jupyter dashboards_bundlers activate
 
 # install kernel-side incubator extensions for python3 environment too
-RUN bash -c "source activate python3 && \
+RUN bash -c "source activate python3 && pip install \
     jupyter_declarativewidgets==$DECL_WIDGETS_VERSION \
     jupyter_cms==$CMS_VERSION"
 
