@@ -3,7 +3,7 @@
 
 .PHONY: help build dev
 
-IMAGE:=jupyter-incubator/techpreview
+IMAGE:=jupyter-incubator/showcase
 
 help:
 	@cat Makefile
