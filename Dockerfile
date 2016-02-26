@@ -27,7 +27,7 @@ USER main
 
 ENV DASHBOARDS_VERSION 0.4.1
 ENV DASHBOARDS_BUNDLERS_VERSION 0.2.2
-ENV DECL_WIDGETS_VERSION 0.3.1
+ENV DECL_WIDGETS_VERSION 0.4.1
 ENV CMS_VERSION 0.4.0
 
 # get to the latest jupyter release and necessary libraries
@@ -65,7 +65,7 @@ RUN cd /tmp && \
 RUN cd /tmp && \
     wget -qO src.tar.gz https://github.com/jupyter-incubator/declarativewidgets/archive/$DECL_WIDGETS_VERSION.tar.gz && \
     tar xzf src.tar.gz && \
-    mv declarativewidgets*/notebooks $HOME/notebooks/declarativewidgets && \
+    mv declarativewidgets*/etc/notebooks $HOME/notebooks/declarativewidgets && \
     rm -rf /tmp/declarativewidgets* && \
     rm -f /tmp/src.tar.gz
 RUN cd /tmp && \
