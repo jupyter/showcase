@@ -29,6 +29,7 @@ ENV DASHBOARDS_VERSION 0.4.1
 ENV DASHBOARDS_BUNDLERS_VERSION 0.2.2
 ENV DECL_WIDGETS_VERSION 0.4.1
 ENV CMS_VERSION 0.4.0
+ENV TOREE_VERSION 0.1.0.dev3
 
 # get to the latest jupyter release and necessary libraries
 RUN conda install -y jupyter seaborn futures && \
@@ -75,6 +76,10 @@ RUN cd /tmp && \
     find $HOME/notebooks/dashboards -type f -name '*.ipynb' -print0 | xargs -0 sed -i 's$/home/jovyan/work$/home/main/notebooks/dashboards$g' && \
     rm -rf /tmp/dashboards* && \
     rm -f /tmp/src.tar.gz
+
+# install Toree
+RUN pip install toree==$TOREE_VERSION
+RUN jupyter toree install --user
 
 # include nice intro notebook
 COPY index.ipynb $HOME/notebooks/
