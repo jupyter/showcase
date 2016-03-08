@@ -29,7 +29,6 @@ ENV DASHBOARDS_VERSION 0.4.1
 ENV DASHBOARDS_BUNDLERS_VERSION 0.2.2
 ENV DECL_WIDGETS_VERSION 0.4.1
 ENV CMS_VERSION 0.4.0
-ENV TOREE_VERSION 0.1.0.dev3
 
 # get to the latest jupyter release and necessary libraries
 RUN conda install -y jupyter seaborn futures && \
@@ -78,7 +77,7 @@ RUN cd /tmp && \
     rm -f /tmp/src.tar.gz
 
 # install Toree
-RUN pip install toree==$TOREE_VERSION
+RUN pip install 'toree>=0.1.0.dev0, <=0.1.0'
 RUN jupyter toree install --user
 
 # include nice intro notebook
