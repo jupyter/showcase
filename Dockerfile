@@ -82,7 +82,7 @@ RUN jupyter toree install --user
 
 # include nice intro notebook
 USER root
-COPY index.ipynb $HOME/notebooks/
+COPY index.ipynb.tmpl $HOME/notebooks/index.ipynb
 RUN sed -i "s/{{DATE}}/$(date +'%Y-%m-%d')/g" $HOME/notebooks/index.ipynb && \
     chown main $HOME/notebooks/index.ipynb
 USER main
