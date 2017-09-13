@@ -1,3 +1,9 @@
+# [RETIRED] Jupyter Incubator Showcase
+
+**This project has been retired.** See the [proposal to move the project to jupyter-attic](https://github.com/jupyter/enhancement-proposals/blob/master/jupyter-dashboards-deployment-attic/jupyter-dashboards-deployment-attic.md), [announcement of the proposal on the mailing list](https://groups.google.com/forum/#!topic/jupyter/icEtCVLniRc), and [Steering Council vote on the proposal PR](https://github.com/jupyter/enhancement-proposals/pull/22) for more information.
+
+----
+
 [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/jupyter-incubator/showcase)
 
 This repo showcases some projects in the Jupyter Incubation area in a click-to-try temporary notebook server provided by the (totally awesome) [Binder](http://mybinder.org) project. The binder image currently includes:
